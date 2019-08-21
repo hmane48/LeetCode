@@ -40,8 +40,6 @@ public class Solution {
             revertedNum = revertedNum * 10 + (x % 10);
             x /= 10;
         }
-
         return revertedNum == num;
-
     }
 }
