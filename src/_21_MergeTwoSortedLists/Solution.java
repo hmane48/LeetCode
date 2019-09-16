@@ -17,6 +17,7 @@ class ListNode {
     }
 }
 
+// Brute force approach
 public class Solution {
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
@@ -26,19 +27,19 @@ public class Solution {
         ListNode tail = dummyNode;
         // Comparison Logic
         while (true) {
-            if (l1 == null){
+            if (l1 == null) {
                 tail.next = l2;
                 break;
             }
-            if (l2 == null){
+            if (l2 == null) {
                 tail.next = l1;
                 break;
             }
 
-            if (l1.val > l2.val){
+            if (l1.val > l2.val) {
                 tail.next = l2;
                 l2 = l2.next;
-            }else {
+            } else {
                 tail.next = l1;
                 l1 = l1.next;
             }
@@ -47,5 +48,24 @@ public class Solution {
         }
 
         return dummyNode.next;
+    }
+
+    // Recursive approach
+    public ListNode mergeTwoListsR(ListNode a, ListNode b) {
+
+        // If one of the list is null return the other
+        if (a == null) {
+            return b;
+        }
+        if (b == null) {
+            return a;
+        }
+        if (a.val > b.val) {
+            b.next = mergeTwoListsR(a, b.next);
+            return b;
+        } else {
+            a.next = mergeTwoListsR(a.next, b);
+            return a;
+        }
     }
 }
