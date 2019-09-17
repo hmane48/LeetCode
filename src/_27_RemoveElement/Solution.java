@@ -21,7 +21,6 @@ public class Solution {
                 nums[j++] = nums[i];
             }
         }
-
         System.out.println(Arrays.toString(nums));
 
         return j;
